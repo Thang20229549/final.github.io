@@ -1,0 +1,192 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- nav -->
+    <header>
+        <a href="#" class="logo">Bun<span>.</span></a>
+        <div class="menuToggle"></div>
+        <ul class="navigation">
+            <li><a href="#home" onclick="toggleMenu();">Home</a></li>
+            <li><a href="#about" onclick="toggleMenu();">About</a></li>
+            <li><a href="#menu" onclick="toggleMenu();">Menu</a></li>
+            <li><a href="#review" onclick="toggleMenu();">Review</a></li>
+            <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
+        </ul>
+    </header>
+    <!-- banner -->
+    <section class="banner" id="home">
+        <img src="images/bun_bo.webp" class="fitBg">
+        <div class="content">
+            <h2>Bun</h2>
+            <p>A delicious Vietnamese dish.</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+    <!-- about -->
+    <section class="about" id="about">
+        <div class="contentBx">
+            <h2 class="tittleText">Bun</h2>
+            <p class="title-text">
+                Bun, like the more famous Pho Bo, is a beef noodle dish but is distinctly different due to its history and origins. It is a noodle soup with a rich spicy broth, it contains slices of beef or pork and is topped with leaves and herbs as so many Vietnamese dishes are. It is a meal full of flavours and textural contrasts.
+            </p>
+            <a href="#destination" class="btn2">Order now</a>
+        </div>
+        <div class="imgBx">
+            <img src="images/bun_bo_hue_place.jpg" class="fitBg">
+        </div>
+    </section>
+    <section class="destination" id="menu">
+        <div class="content">
+            <h2 class="tittleText">Our Menu</h2>
+            
+        </div>
+        <div class="destination-list">
+            <div class="box">
+                <div class="imgBx">
+                    <img src="images/Bun-Bo-Hue-Wide.webp" class="fitBg" alt="">
+                </div>
+                <div class="content">
+                    <h2>Bun Bo <br> <span>1000 Yen</span></h2>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="images/bun_gio.webp" class="fitBg" alt="">
+                </div>
+                <div class="content">
+                    <h2>Bun Gio <br> <span>1100 Yen</span></h2>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="images/bun-cha.jpg" class="fitBg" alt="">
+                </div>
+                <div class="content">
+                    <h2>Bun Cha <br> <span>1050 Yen</span></h2>
+                </div>
+            </div>
+        </div>
+        <a href="#testimonial" class="btn3">Our Review</a>
+    </section>
+    <!-- Testimonials -->
+    <section class="testimonial" id="review">
+        <div class="title white">
+            <h2 class="testimonial-Text">Reviews</h2>
+            
+        </div>
+        <div class="testimonial-content">
+            <div class="box">
+                <div class="imgBx">
+                    <img src="images/image7.jpg" class="fitBg" alt="">
+                </div>
+                <div class="text">
+                    <p>The food is tasty. I will definitely come again</p>
+                    <h3>Person A</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="images/image8.jpg" class="fitBg" alt="">
+                </div>
+                <div class="text">
+                    <p>I love the interior design here.</p>
+                    <h3>Person B</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="images/image9.jpg" class="fitBg" alt="">
+                </div>
+                <div class="text">
+                    <p>The taste of this dish is very novel to me.</p>
+                    <h3>Person C</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="title">
+            <h2 class="contact-Text"><span>C</span>ontact Us</h2>
+            <p class="contact-text">Let's become business partners.</p>
+        </div>
+        <div class="contactForm">
+            <h3>Send Message</h3>
+            <div class="inputBox">
+                <input type="text" placeholder="Name">
+            </div>
+            <div class="inputBox">
+                <input type="text" placeholder="Email">
+            </div>
+            <div class="inputBox">
+                <textarea  placeholder="Message"></textarea>
+            </div>
+            <div class="inputBox">
+                <input type="submit" value="Send">
+            </div>
+        </div>
+    </section>
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="sec aboutus">
+                <h2>About Us</h2>
+                <p>Bun, like the more famous Pho Bo, is a beef noodle dish but is distinctly different due to its history and origins. It is a noodle soup with a rich spicy broth, it contains slices of beef or pork and is topped with leaves and herbs as so many Vietnamese dishes are. It is a meal full of flavours and textural contrasts.</p>
+                <ul class="sci">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quickLinks"> 
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#home" onclick="toggleMenu();">Home</a></li>
+                    <li><a href="#about" onclick="toggleMenu();">About</a></li>
+                    <li><a href="#menu" onclick="toggleMenu();">Menu</a></li>
+                    <li><a href="#review" onclick="toggleMenu();">Review</a></li>
+                    <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
+                </ul>
+            </div>
+            <div class="sec contactBx">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class="fa fa-map-marker"></i></span>
+                        <span>Somewhere in Japan</span>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-phone"></i></span>
+                        <p><a href="tel:012345678">012345678</a> <br>
+                       
+                    </li>
+                    <li>
+                        <span><i class="fa fa-envelope"></i></span>
+                        <p><a href="mailto:codemyhobby9@gmial.com">fake@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Javascript -->
+    <script>
+        window.addEventListener('scroll', function(){
+            const header = document.querySelector('header');
+            header.classList.toggle("sticky", window.scrollY > 0)
+        });
+        function toggleMenu(){
+            const menuToggle = document.querySelector('.menuToggle');
+            const navigation = document.querySelector('.navigation')
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
