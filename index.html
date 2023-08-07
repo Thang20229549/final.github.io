@@ -1,192 +1,161 @@
-    <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Website</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Tooltip Example</title>
+    <style>.tooltip-container {
+      position: relative;
+      display: inline-block;
+  }
+  
+  .tooltip-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 12px;
+      z-index: 1;
+  }
+  
+  .tooltip-container:hover .tooltip-content,
+  .tooltip-container:focus .tooltip-content {
+      display: block;
+  }
+  
+  /* For mobile devices, show tooltip on tap */
+  @media (max-width: 767px) {
+      .tooltip-content {
+          display: none;
+          position: static;
+      }
+  
+      .tooltip-container:hover .tooltip-content {
+          display: block;
+      }
+  }
+  </style>
+
+<script>// Get all tooltip containers
+  const tooltipContainers = document.querySelectorAll('.tooltip-container');
+  
+  // Show tooltip on hover or tap and hide on click outside
+  tooltipContainers.forEach(function (container) {
+      const tooltipTrigger = container.querySelector('.tooltip-trigger');
+      const tooltipContent = container.querySelector('.tooltip-content');
+  
+      // Show tooltip on hover or tap
+      function showTooltip() {
+          tooltipContent.style.display = 'block';
+      }
+  
+      // Hide tooltip
+      function hideTooltip() {
+          tooltipContent.style.display = 'none';
+      }
+  
+      // Event listeners for hover and tap (for mobile devices)
+      tooltipTrigger.addEventListener('mouseover', showTooltip);
+      tooltipTrigger.addEventListener('focus', showTooltip); // For accessibility
+      tooltipTrigger.addEventListener('click', showTooltip); // For mobile devices
+  
+      // Hide tooltip when clicking outside the tooltip container on mobile devices
+      if (window.innerWidth <= 767) {
+          document.addEventListener('click', function (event) {
+              if (!container.contains(event.target)) {
+                  hideTooltip();
+              }
+          });
+      }
+  });
+  </script>
 </head>
 <body>
-    <!-- nav -->
-    <header>
-        <a href="#" class="logo">Bun<span>.</span></a>
-        <div class="menuToggle"></div>
-        <ul class="navigation">
-            <li><a href="#home" onclick="toggleMenu();">Home</a></li>
-            <li><a href="#about" onclick="toggleMenu();">About</a></li>
-            <li><a href="#menu" onclick="toggleMenu();">Menu</a></li>
-            <li><a href="#review" onclick="toggleMenu();">Review</a></li>
-            <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
-        </ul>
-    </header>
-    <!-- banner -->
-    <section class="banner" id="home">
-        <img src="images/bun_bo.webp" class="fitBg">
-        <div class="content">
-            <h2>Bun</h2>
-            <p>A delicious Vietnamese dish.</p>
-            <a href="#about" class="btn">Learn More</a>
-        </div>
-    </section>
-    <!-- about -->
-    <section class="about" id="about">
-        <div class="contentBx">
-            <h2 class="tittleText">Bun</h2>
-            <p class="title-text">
-                Bun, like the more famous Pho Bo, is a beef noodle dish but is distinctly different due to its history and origins. It is a noodle soup with a rich spicy broth, it contains slices of beef or pork and is topped with leaves and herbs as so many Vietnamese dishes are. It is a meal full of flavours and textural contrasts.
-            </p>
-            <a href="#destination" class="btn2">Order now</a>
-        </div>
-        <div class="imgBx">
-            <img src="images/bun_bo_hue_place.jpg" class="fitBg">
-        </div>
-    </section>
-    <section class="destination" id="menu">
-        <div class="content">
-            <h2 class="tittleText">Our Menu</h2>
-            
-        </div>
-        <div class="destination-list">
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/Bun-Bo-Hue-Wide.webp" class="fitBg" alt="">
-                </div>
-                <div class="content">
-                    <h2>Bun Bo <br> <span>1000 Yen</span></h2>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/bun_gio.webp" class="fitBg" alt="">
-                </div>
-                <div class="content">
-                    <h2>Bun Gio <br> <span>1100 Yen</span></h2>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/bun-cha.jpg" class="fitBg" alt="">
-                </div>
-                <div class="content">
-                    <h2>Bun Cha <br> <span>1050 Yen</span></h2>
-                </div>
-            </div>
-        </div>
-        <a href="#testimonial" class="btn3">Our Review</a>
-    </section>
-    <!-- Testimonials -->
-    <section class="testimonial" id="review">
-        <div class="title white">
-            <h2 class="testimonial-Text">Reviews</h2>
-            
-        </div>
-        <div class="testimonial-content">
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/image7.jpg" class="fitBg" alt="">
-                </div>
-                <div class="text">
-                    <p>The food is tasty. I will definitely come again</p>
-                    <h3>Person A</h3>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/image8.jpg" class="fitBg" alt="">
-                </div>
-                <div class="text">
-                    <p>I love the interior design here.</p>
-                    <h3>Person B</h3>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/image9.jpg" class="fitBg" alt="">
-                </div>
-                <div class="text">
-                    <p>The taste of this dish is very novel to me.</p>
-                    <h3>Person C</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="contact" id="contact">
-        <div class="title">
-            <h2 class="contact-Text"><span>C</span>ontact Us</h2>
-            <p class="contact-text">Let's become business partners.</p>
-        </div>
-        <div class="contactForm">
-            <h3>Send Message</h3>
-            <div class="inputBox">
-                <input type="text" placeholder="Name">
-            </div>
-            <div class="inputBox">
-                <input type="text" placeholder="Email">
-            </div>
-            <div class="inputBox">
-                <textarea  placeholder="Message"></textarea>
-            </div>
-            <div class="inputBox">
-                <input type="submit" value="Send">
-            </div>
-        </div>
-    </section>
-    <!-- footer -->
-    <footer>
-        <div class="container">
-            <div class="sec aboutus">
-                <h2>About Us</h2>
-                <p>Bun, like the more famous Pho Bo, is a beef noodle dish but is distinctly different due to its history and origins. It is a noodle soup with a rich spicy broth, it contains slices of beef or pork and is topped with leaves and herbs as so many Vietnamese dishes are. It is a meal full of flavours and textural contrasts.</p>
-                <ul class="sci">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                </ul>
-            </div>
-            <div class="sec quickLinks"> 
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="#home" onclick="toggleMenu();">Home</a></li>
-                    <li><a href="#about" onclick="toggleMenu();">About</a></li>
-                    <li><a href="#menu" onclick="toggleMenu();">Menu</a></li>
-                    <li><a href="#review" onclick="toggleMenu();">Review</a></li>
-                    <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
-                </ul>
-            </div>
-            <div class="sec contactBx">
-                <h2>Contact Info</h2>
-                <ul class="info">
-                    <li>
-                        <span><i class="fa fa-map-marker"></i></span>
-                        <span>Somewhere in Japan</span>
-                    </li>
-                    <li>
-                        <span><i class="fa fa-phone"></i></span>
-                        <p><a href="tel:012345678">012345678</a> <br>
-                       
-                    </li>
-                    <li>
-                        <span><i class="fa fa-envelope"></i></span>
-                        <p><a href="mailto:codemyhobby9@gmial.com">fake@gmail.com</a></p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    <!-- Javascript -->
-    <script>
-        window.addEventListener('scroll', function(){
-            const header = document.querySelector('header');
-            header.classList.toggle("sticky", window.scrollY > 0)
-        });
-        function toggleMenu(){
-            const menuToggle = document.querySelector('.menuToggle');
-            const navigation = document.querySelector('.navigation')
-            menuToggle.classList.toggle('active');
-            navigation.classList.toggle('active');
-        }
-    </script>
+  <div class="tooltip-container">
+    <span class="tooltip-trigger">コミュニケーション力をはかる基準としては、話す相手が幅広いという基準も挙げることができる。</span>
+    <div class="tooltip-content"> As a criterion for measuring communication skills, one can also consider the breadth of the conversational partners.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">だれか特定の人間としか話せないとなると、コミュニケーション力は低い。</span>
+    <div class="tooltip-content"> If one can only talk to specific individuals, their communication skills are considered low.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">お母さんとしか話すことのできない子供も、友達としか話せない若者、同年代・同性の仕事仲間としか話せない会社員など、会話の相手の幅が狭い人はコミュニケーションが十分ではない。</span>
+    <div class="tooltip-content"> Individuals who can only talk to their mothers, young people who can only talk to friends, or office workers who can only converse with colleagues of the same age and gender, lack sufficient communication abilities.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">老若男女と接する機会が多いほど、柔軟なコミュニケーション力が養成される。</span>
+    <div class="tooltip-content"> The more opportunities one has to interact with people of all ages and genders, the more flexible their communication skills become.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">幼児とはどんな話をしたらいいのか、二十代の女性とは、五十代の女性とは・・・・・といったように相手によって話題を変えて、会話の糸口を見つけ出していくことができれば、コミュニケーション力は相当高い。</span>
+    <div class="tooltip-content"> If one can adapt the topics of conversation depending on the person they are speaking with, such as knowing what to talk about with a toddler, a woman in her twenties, or a woman in her fifties, then their communication skills are considerably high.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">もちろん年齢や性別だけでは十分ではない。</span>
+    <div class="tooltip-content"> Of course, age and gender alone are not sufficient.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">相手の置かれている社会的な状況や関心事を瞬時に察知して、対話関係を結ぶ。</span>
+    <div class="tooltip-content"> It is essential to instantly perceive the social situation and interests of the other person to establish a dialogue.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">具体的な状況としては、マンションのエレベーターで二人きりになった場面を考えてみよう。</span>
+    <div class="tooltip-content"> Let's consider a specific situation, such as being alone with a five-year-old in an elevator.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">五歳児と一緒になったときに、「何階まで行くの？」と聞く程度のことは普通だ。</span>
+    <div class="tooltip-content"> It is normal to ask something like "Which floor are you going to?" when you're with a five-year-old.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">全く一言も交わさずに、過ごすとすれば、コミュニケーションを煩わしく思っていると判断していい。</span>
+    <div class="tooltip-content"> If you spend the entire time without exchanging a single word, it can be judged that you find communication bothersome.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">「どこの幼稚園に行ってるの？」や「今日「ちびまる子ちゃん」やるよね、見る？」といった話題を振ってみることができるかどうか。</span>
+    <div class="tooltip-content"> However, if you try to bring up topics like "Which kindergarten do you go to?" or "Are you going to watch 'Chibi Maruko-chan' today?" you might be able to find a connection and engage in a conversation.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">本当にうまくやれば、十秒ほどの間でも多少とも、心の通い合う会話を交わすことはできる。</span>
+    <div class="tooltip-content"> Even if it's just for ten seconds, you might be able to engage in a conversation that establishes some level of emotional connection if you do it really well.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">世間話の効用というものがある。</span>
+    <div class="tooltip-content"> There is a purpose to casual conversation.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">お天気の話から入り、とりとめもない世間話をする。</span>
+    <div class="tooltip-content"> Starting with small talk about the weather and engaging in mundane chit-chat.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">そうすることで、お互いに素知らぬふりをしているよりは、ずっと気持ちが楽になる。</span>
+    <div class="tooltip-content"> By doing so, both parties feel much more at ease than pretending not to know each other.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">一緒の空間にいて、相手がそこにいることはわかっているのに、あたかも誰もいないかのように振る舞い合うーーーそうした気まずい空気を過ごすよりは、ずっと世間話をして、気持ちを交わし合って別れる。</span>
+    <div class="tooltip-content"> It's more pleasant to have small talk and share feelings rather than enduring an awkward atmosphere as if no one is present, even though both parties know the other is there.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">そのほうがずっと気分がいい。</span>
+    <div class="tooltip-content"> That way, the mood is much better.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">誰とでもすぐに世間話ができる。</span>
+    <div class="tooltip-content"> Being able to engage in small talk with anyone immediately.</div>
+</div><br>
+<div class="tooltip-container">
+    <span class="tooltip-trigger">これは重要なコミュニケーション力である。</span>
+    <div class="tooltip-content"> This is an important communication skill.</div>
+</div><br>
+
+
+
+
+  
+
+
+
 </body>
 </html>
